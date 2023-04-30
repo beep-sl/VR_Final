@@ -11,6 +11,7 @@ public class PickupWeapon : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject particleSystem;
     [SerializeField] public AudioSource magicalSurprise;
+    [SerializeField] public AudioSource findTheStaff;
 
     private ObjectGrabbable weapon;
     private GameObject objectToDestroy;
@@ -66,6 +67,8 @@ public class PickupWeapon : MonoBehaviour
                     Instantiate(particleSystem, spawnPos, Quaternion.identity);
                 }
                 i++;
+            } else if (!isHoldingWeapon) {
+                findTheStaff.Play();
             }
         }
     }
