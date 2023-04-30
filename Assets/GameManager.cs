@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         // You died, bring back to main menu
+        SceneManager.LoadScene(0);
         Debug.Log("Game over");
     }
 

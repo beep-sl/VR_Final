@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     public float health;
 
     public LayerMask whatIsGround, whatIsPlayer;
+    public AudioSource audioSource;
 
     // Patrol
     public Vector3 walkPoint;
@@ -108,6 +109,7 @@ public class EnemyAI : MonoBehaviour
             rb.AddForce(transform.up * 4f, ForceMode.Impulse);
 
             alreadyAttacked = true;
+            audioSource.Play();
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }

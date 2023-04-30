@@ -10,6 +10,7 @@ public class PickupWeapon : MonoBehaviour
     [SerializeField] private Transform objectGrabPointTransform;
     [SerializeField] private GameObject prefab;
     [SerializeField] private GameObject particleSystem;
+    [SerializeField] public AudioSource magicalSurprise;
 
     private ObjectGrabbable weapon;
     private GameObject objectToDestroy;
@@ -59,6 +60,7 @@ public class PickupWeapon : MonoBehaviour
                 objectToDestroy = null;
                 if (i == 5) {
                     Instantiate(prefab, spawnPos, Quaternion.identity);
+                    magicalSurprise.Play();
                     //transform.position += Vector3.up * 1 * Time.deltaTime;
                 } else {
                     Instantiate(particleSystem, spawnPos, Quaternion.identity);
