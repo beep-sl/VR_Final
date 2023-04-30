@@ -64,7 +64,8 @@ public class PickupWeapon : MonoBehaviour
                     magicalSurprise.Play();
                     //transform.position += Vector3.up * 1 * Time.deltaTime;
                 } else {
-                    Instantiate(particleSystem, spawnPos, Quaternion.identity);
+                    GameObject fire = Instantiate(particleSystem, spawnPos, Quaternion.identity);
+                    Destroy(fire, 5f);
                 }
                 i++;
             } else if (!isHoldingWeapon) {

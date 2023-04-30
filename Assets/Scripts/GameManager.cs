@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
     public void CheckHealth()
     {
         Health playerHealth = player.GetComponent<Health>();
-        Debug.Log("Player Health: " + playerHealth);
-        if (playerHealth.health <= 0)
+        if (currentHealth <= 0)
         {
+            Debug.Log("Hiiiiii");
             GameOver();
-        } else if (playerHealth.health == 50) {
+        } else if (currentHealth == 50) {
             ouch.Play();
         }
     }
@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         // You died, bring back to main menu
-        SceneManager.LoadScene(0);
         Debug.Log("Game over");
+        SceneManager.LoadScene(0);
     }
 
     private void YouWin() {

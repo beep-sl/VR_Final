@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialScreen.unity
     guid: 6bc26ebb15539a34a80f9b7602bbeed8
   - enabled: 1
-    path: Assets/Stephen's Scene.unity
+    path: Assets/Scenes/Stephen's Scene.unity
     guid: b78e4f46db7cb469d93d94ef6d40991e
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
