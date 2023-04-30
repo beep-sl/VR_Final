@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject player;
     public GameObject cactusSpawner;
+    public AudioSource ouch;
     public int score = 0;
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
         if (playerHealth.health <= 0)
         {
             GameOver();
+        } else if (playerHealth.health == 50) {
+            ouch.Play();
         }
     }
 
