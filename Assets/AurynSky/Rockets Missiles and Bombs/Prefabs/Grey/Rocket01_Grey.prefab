@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33393642251697954}
   - component: {fileID: 23733933596998298}
   - component: {fileID: 8635715052641850257}
+  - component: {fileID: 4448576306160581555}
+  - component: {fileID: 5009379144047465015}
   m_Layer: 0
   m_Name: Rocket01_Grey
   m_TagString: Untagged
@@ -100,3 +102,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4448576306160581555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207504508055520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3be795ab3b324f2eaae3150405915fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!65 &5009379144047465015
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207504508055520}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.356159, y: 9.814482, z: 3.3561592}
+  m_Center: {x: 0.009413241, y: 1.0065076, z: 0.0020667312}

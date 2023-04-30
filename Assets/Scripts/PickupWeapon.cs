@@ -14,8 +14,10 @@ public class PickupWeapon : MonoBehaviour
     private ObjectGrabbable weapon;
     private GameObject objectToDestroy;
     private GameObject gameObj;
+    [SerializeField] private CactusSpawner cactusSpawner;
     bool canDestroy;
     bool canPickup;
+    bool isHoldingWeapon;
 
     private int i;
 
@@ -32,6 +34,7 @@ public class PickupWeapon : MonoBehaviour
                     if (gameObj.TryGetComponent(out weapon)) {
                         weapon.Grab(objectGrabPointTransform);
                         Debug.Log(weapon);
+                        isHoldingWeapon = true;
                     }
                 }
             } else {
@@ -42,14 +45,17 @@ public class PickupWeapon : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.G)) {
             //float attackDistance = 1f;
             Debug.Log("Gpress");
-            Debug.Log(canDestroy);
+            Debug.Log(" Candestroy:" + canDestroy);
+            Debug.Log("Object to destroy: " + objectToDestroy);
             //Destroy(objectToDestroy);
-            if (canDestroy == true && objectToDestroy != null) {
+            if (canDestroy == true && objectToDestroy != null && isHoldingWeapon) {
                 canDestroy = false;
                 Debug.Log("Were destroying");
                 Debug.Log(objectToDestroy);
                 Vector3 spawnPos = objectToDestroy.transform.position;
                 Destroy(objectToDestroy);
+                CactusSpawner cacti = cactusSpawner.GetComponent<CactusSpawner>();
+                cacti.numberOfEnemies -= 1;
                 objectToDestroy = null;
                 if (i == 5) {
                     Instantiate(prefab, spawnPos, Quaternion.identity);
@@ -68,6 +74,7 @@ public class PickupWeapon : MonoBehaviour
         {
             canDestroy = true;
             Debug.Log("candestroy");
+            Debug.Log("Object to destroy: " + other.gameObject);
             objectToDestroy = other.gameObject; //set the gameobject you collided with to one you can reference
             Debug.Log(objectToDestroy);
         } else if (other.gameObject.tag == "Weapon") {
